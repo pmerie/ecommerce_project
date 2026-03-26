@@ -1,0 +1,215 @@
+/* =========================
+   WHISPERING PAGES ADMIN UI
+   CLEAN ACTIVEADMIN THEME
+   ========================= */
+
+/* GLOBAL */
+body.active_admin {
+  font-family: "Inter", Arial, sans-serif;
+  background: #f4f6f9;
+  color: #2c3e50;
+}
+
+/* WRAPPER */
+#wrapper {
+  background: transparent;
+}
+
+/* HEADER */
+#header {
+  background: #1f2d3d;
+  padding: 14px 20px;
+  border-bottom: 3px solid #1abc9c;
+}
+
+#site_title {
+  color: white;
+  font-size: 20px;
+}
+
+/* TOP NAV */
+#tabs {
+  background: #263445;
+  padding: 10px;
+}
+
+#tabs a {
+  color: #fff;
+  padding: 6px 10px;
+  display: inline-block;
+}
+
+#tabs a:hover {
+  background: #1abc9c;
+  border-radius: 4px;
+}
+
+/* USER MENU */
+#utility_nav a {
+  color: white;
+}
+
+/* TITLE BAR */
+#title_bar {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+}
+
+/* MAIN CONTENT */
+#active_admin_content {
+  padding: 20px;
+}
+
+/* TABLE CONTAINER */
+.index_table {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* TABLE HEADER */
+.index_table th {
+  background: #f0f3f7;
+  padding: 12px;
+  font-weight: 600;
+}
+
+/* TABLE ROWS */
+.index_table td {
+  padding: 12px;
+  border-top: 1px solid #eee;
+}
+
+.index_table tr:hover {
+  background: #f9fbfd;
+}
+
+/* ACTION BUTTONS */
+.table_actions a {
+  margin-right: 8px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.view_link {
+  background: #3498db;
+  color: white;
+}
+
+.edit_link {
+  background: #f39c12;
+  color: white;
+}
+
+.delete_link {
+  background: #e74c3c;
+  color: white;
+}
+
+/* SIDEBAR */
+#sidebar {
+  background: white;
+  padding: 15px;
+  border-left: 1px solid #eee;
+}
+
+/* FILTER BOX */
+.filter_form {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* BUTTONS */
+input[type="submit"], .button {
+  background: #1abc9c;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+  background: #16a085;
+}
+
+/* =========================
+   FILTER SIDEBAR FIX
+   ========================= */
+
+.sidebar {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Section title (Filters) */
+.sidebar_section h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Each filter block */
+.filter_form_field {
+  margin-bottom: 14px;
+}
+
+/* Labels */
+.filter_form label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Inputs + selects */
+.filter_form input,
+.filter_form select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+}
+
+/* Focus effect */
+.filter_form input:focus,
+.filter_form select:focus {
+  border-color: #1abc9c;
+  outline: none;
+  background: white;
+}
+
+/* Buttons row */
+.filter_form .buttons {
+  margin-top: 10px;
+}
+
+/* Filter button */
+.filter_form input[type="submit"] {
+  width: 100%;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Clear filters link */
+.clear_filters_btn {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #e74c3c;
+}
