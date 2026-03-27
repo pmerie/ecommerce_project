@@ -1,5 +1,5 @@
 ActiveAdmin.register Book do
-  permit_params :title, :author, :description, :price, :stock, :category_id
+  permit_params :title, :author, :description, :price, :stock, :category_id, :image
 
   # ✅ REMOVE BAD RANSACK FILTER (THIS FIXES YOUR CRASH)
   remove_filter :image_attachment
@@ -15,6 +15,9 @@ ActiveAdmin.register Book do
 
       f.input :category, as: :select,
               collection: Category.all.map { |c| [ c.category_name, c.id ] }
+
+      # ✅ ADDED: IMAGE UPLOAD
+      f.input :image, as: :file
     end
     f.actions
   end
@@ -26,6 +29,13 @@ ActiveAdmin.register Book do
     column :author
     column :price
     column :stock
+
+    # ✅ ADDED: IMAGE PREVIEW (INDEX)
+    column :image do |book|
+      if book.image.attached?
+        image_tag url_for(book.image), width: 50
+      end
+    end
 
     column :category do |book|
       book.category&.category_name
@@ -42,6 +52,26 @@ ActiveAdmin.register Book do
         form: { style: "display:inline;" })
 
       safe_join(links, " | ")
+    end
+  end
+
+  # ✅ ADDED: SHOW PAGE IMAGE DISPLAY
+  show do
+    attributes_table do
+      row :title
+      row :author
+      row :description
+      row :price
+      row :stock
+      row :category
+
+      row :image do |book|
+        if book.image.attached?
+          image_tag url_for(book.image), width: 200
+        else
+          "No image uploaded"
+        end
+      end
     end
   end
 end
