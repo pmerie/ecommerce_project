@@ -1,5 +1,14 @@
 ActiveAdmin.register Page do
+  config.batch_actions = true
+
   permit_params :title, :content, :slug
+
+  controller do
+    def destroy
+      resource.destroy
+      redirect_to admin_pages_path, notice: "Page deleted successfully"
+    end
+  end
 
   form do |f|
     f.inputs do
