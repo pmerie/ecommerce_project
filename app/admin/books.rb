@@ -1,7 +1,10 @@
 ActiveAdmin.register Book do
   permit_params :title, :author, :description, :price, :stock, :category_id
 
-  # ✅ FORM (THIS FIXES YOUR ERROR)
+  # ✅ REMOVE BAD RANSACK FILTER (THIS FIXES YOUR CRASH)
+  remove_filter :image_attachment
+  remove_filter :image_blob
+
   form do |f|
     f.inputs do
       f.input :title
@@ -10,7 +13,6 @@ ActiveAdmin.register Book do
       f.input :price
       f.input :stock
 
-      # ✅ Correct for your column: category_name
       f.input :category, as: :select,
               collection: Category.all.map { |c| [ c.category_name, c.id ] }
     end
@@ -33,9 +35,11 @@ ActiveAdmin.register Book do
       links = []
       links << link_to("View", admin_book_path(book))
       links << link_to("Edit", edit_admin_book_path(book))
-      links << link_to("Delete", admin_book_path(book),
+
+      links << button_to("Delete", admin_book_path(book),
         method: :delete,
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" })
+        data: { turbo_confirm: "Are you sure?" },
+        form: { style: "display:inline;" })
 
       safe_join(links, " | ")
     end
