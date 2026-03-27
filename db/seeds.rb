@@ -9,14 +9,18 @@ end
 # =========================
 
 # Clear old data (important for re-seeding)
-Category.destroy_all
 Book.destroy_all
+Category.destroy_all
 
 # Create categories
 fiction = Category.create!(category_name: "Fiction")
 non_fiction = Category.create!(category_name: "Non-Fiction")
 children = Category.create!(category_name: "Children")
 fantasy = Category.create!(category_name: "Fantasy")
+romance = Category.find_or_create_by!(category_name: "Romance")
+horror = Category.find_or_create_by!(category_name: "Horror")
+science_fiction = Category.find_or_create_by!(category_name: "Science Fiction")
+thriller = Category.find_by(category_name: "Thriller")
 
 # Create books (10 real books)
 Book.create!([
@@ -101,3 +105,17 @@ Book.create!([
     category: fiction
   }
 ])
+
+# =========================
+# 📄 ADDED: ABOUT & CONTACT PAGES (1.4 FEATURE)
+# =========================
+
+Page.find_or_create_by(slug: "about") do |p|
+  p.title = "About Us"
+  p.content = "Write about your bookstore here."
+end
+
+Page.find_or_create_by(slug: "contact") do |p|
+  p.title = "Contact Us"
+  p.content = "Your contact info here."
+end
